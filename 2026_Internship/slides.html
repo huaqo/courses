@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Slides</title>
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+      th, td { font-size:24px; }
+      li{ font-size: 28px; }
+      #map { width: 100%; height: 480px; }
+      cite {
+          font-style: normal;
+          font-size: 0.35em;
+          color: #6b7280;
+          background: #f3f4f6;
+          padding: 0.1em 0.35em;
+          border-radius: 0.25em;
+          margin-left: 0.15em;
+          white-space: nowrap;
+      }
+    </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section data-background-image="images/solarparc.jpg" data-background-opacity="0.40">
+            <h3>Building Geodata-Pipelines for the Solar Industry</h3>
+            <p>Internship Report</p>
+            <hr>
+            <small>Joaquin Gottlebe</small>
+            <small>24.04.2026</small>
+        </section>
+        <section>
+            <h3>Internship Overview</h3>
+            <p class="fragment">Company: <b>Enerparc AG</b></p>
+            <p class="fragment">Industry domain: <b>Solar industry</b></p>
+            <p class="fragment">Duration: <b>360 hours over 4 months</b></p>
+            <p class="fragment">Role: <b>Developing Geo-ETL-Pipelines</b></p>
+        </section>
+        <section>
+          <h3>My Background</h3>
+            <p class="fragment">Bachelor in <b>Geography</b></p>
+            <p class="fragment">Specialised in <b>Remote Sensing</b> and <b>Geographic Information Systems</b></p>
+            <p class="fragment">Currently pursuing Master in <b>Computational Science</b></p>
+        </section>
+        <section>
+          <h3>Motivation</h3>
+            <p class="fragment">First industry <b>experience</b></p>
+            <p class="fragment">How to handle big <b>Geodata-ETL-Pipelines</b>?</p> 
+            <p class="fragment">How is the dev experience in a <b>non-tech company</b>?</p>  
+        </section>
+        <section>
+         <h5>Enerparc Expertise</h5>
+          <img src="images/enerparc_expertise.png"></img>
+          <p><cite>ENERPARC AG. https://www.enerparc.de</cite></p>
+        </section>
+        <section>
+          <h5>Enerparc Overview</h5>
+          <img src="images/enerparc_overview.png"></img>
+          <p><cite>ENERPARC AG. https://www.enerparc.de</cite></p>
+        </section>
+        <section>
+          <h5>Enerparc Solar Parcs in Germany</h5>
+          <div id="map"></div>
+          <p><cite>ENERPARC AG. https://www.enerparc.de/en/projects#solar-parks-germany</cite></p>
+        </section>
+        <section>
+          <h3>My Team</h3>
+        </section>
+        <section>
+          <h3>My Role</h3>
+        </section>
+        <section>
+          <h3>My Projects</h3>
+        </section>
+        <section>
+          <h3>What is Geographic Information</h3>
+          <img src="images/geodata_features.png"></img>
+          <p><cite>Minn, Michael. Visualizing Terrain in ArcGIS Pro. https://michaelminn.net/tutorials/arcgis-pro-terrain/</cite></p>
+        </section>
+        <section>
+          <h3>What is a Geographic Information Systems</h3>
+          <img src="images/qgis.png"></img>
+          <p><cite>Sutton, Tim. QGIS Screenshot. https://hub.qgis.org/screenshots/1/</cite></p>
+        </section>
+      </div>
+    </div>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/title-footer/title-footer.js"></script>
+    <script> Reveal.initialize({ hash: true, plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ] }); </script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+      let map;
+      let mapLayer;
+
+      function initMapOnce() {
+        if (map) return;
+
+        map = L.map('map', { zoomControl: false }).setView([52.52, 13.405], 6);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        fetch("data/solaranlagen.geojson")
+          .then(res => res.json())
+          .then(data => {
+            mapLayer = L.geoJSON(data).addTo(map);
+            const b = mapLayer.getBounds();
+            if (b.isValid()) map.fitBounds(b, { padding: [20, 20] });
+          })
+          .catch(err => console.error("Failed to load GeoJSON:", err));
+      }
+
+      Reveal.on('ready', event => {
+        if (document.getElementById('map')) {
+          initMapOnce();
+          setTimeout(() => map.invalidateSize(), 0);
+        }
+      });
+
+      Reveal.on('slidechanged', event => {
+        if (event.currentSlide.querySelector('#map')) {
+          initMapOnce();
+          setTimeout(() => map.invalidateSize(), 200);
+        }
+      });
+    </script>
+	</body>
+</html>
