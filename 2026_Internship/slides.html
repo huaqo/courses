@@ -10,12 +10,13 @@
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
+      .reveal  h3 { font-size: 32px;}
       th, td { font-size:24px; }
       li{ font-size: 28px; }
       #map { width: 100%; height: 480px; }
       cite {
           font-style: normal;
-          font-size: 0.35em;
+          font-size: 0.5em;
           color: #6b7280;
           background: #f3f4f6;
           padding: 0.1em 0.35em;
@@ -23,6 +24,17 @@
           margin-left: 0.15em;
           white-space: nowrap;
       }
+      p {
+        font-size: 28px;
+        }
+      b {
+        color: #004682;
+      }
+    .reveal .slide-number {
+    font-size: 24px;
+    background: none;
+    color: #004682;
+    }
     </style>
 	</head>
 	<body>
@@ -34,34 +46,104 @@
             <hr>
             <small>Joaquin Gottlebe</small>
             <small>24.04.2026</small>
+            <br>
+            <img src="https://www.enerparc.de/img/static/logo_enerparc.png" width="200px"></img>
+        </section>
+        <section >
+
+            <h3>Basics: Geographic Information (Geodata)</h3>
+            <div class="r-stack">
+
+                <img class="fragment fade-out r-stretch" src="images/geodata_features.png"></img>
+
+                <table class="fragment current-visible" border="1" cellpadding="6" cellspacing="0">
+                <thead>
+                    <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>category</th>
+                    <th>elevation_m</th>
+                    <th>geometry</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>1</td>
+                    <td>Berlin Center</td>
+                    <td>city</td>
+                    <td>34</td>
+                    <td>POINT(13.4050 52.5200)</td>
+                    </tr>
+                    <tr>
+                    <td>2</td>
+                    <td>Potsdam Station</td>
+                    <td>transport</td>
+                    <td>38</td>
+                    <td>POINT(13.0657 52.3914)</td>
+                    </tr>
+                    <tr>
+                    <td>3</td>
+                    <td>Forest Plot A</td>
+                    <td>sample_site</td>
+                    <td>72</td>
+                    <td>POINT(12.9876 52.4123)</td>
+                    </tr>
+                    <tr>
+                    <td>4</td>
+                    <td>Lake View</td>
+                    <td>observation</td>
+                    <td>29</td>
+                    <td>POINT(13.1025 52.4568)</td>
+                    </tr>
+                    <tr>
+                    <td>5</td>
+                    <td>Weather Sensor 01</td>
+                    <td>sensor</td>
+                    <td>45</td>
+                    <td>POINT(13.2211 52.3347)</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            <p><cite>Minn, Michael. Visualizing Terrain in ArcGIS Pro. https://michaelminn.net/tutorials/arcgis-pro-terrain/</cite></p>
+            <p>Data and information which has an <b>association with a location relative to Earth</b></p>
+        </section>
+        <section>
+          <h3>Basics: Geographic Information Systems (GIS)</h3>
+          <img src="images/qgis.png" class="r-stretch"></img>
+            <p>Consists of integrated computer hardware and software that <b>store, manage, analyze, edit, output, and visualize geographic data.</b></p>
+          <p><cite>©OpenStreetMap contributors</cite></p>
         </section>
         <section>
             <h3>Internship Overview</h3>
             <p class="fragment">Company: <b>Enerparc AG</b></p>
             <p class="fragment">Industry domain: <b>Solar industry</b></p>
             <p class="fragment">Duration: <b>360 hours over 4 months</b></p>
-            <p class="fragment">Role: <b>Developing Geo-ETL-Pipelines</b></p>
+            <p class="fragment">Role: <b>GIS Developer</b></p>
         </section>
         <section>
           <h3>My Background</h3>
             <p class="fragment">Bachelor in <b>Geography</b></p>
             <p class="fragment">Specialised in <b>Remote Sensing</b> and <b>Geographic Information Systems</b></p>
+            <p class="fragment"><b>4</b> years of experience in <b>tutoring</b> RS/GIS</p>
             <p class="fragment">Currently pursuing Master in <b>Computational Science</b></p>
         </section>
         <section>
           <h3>Motivation</h3>
             <p class="fragment">First industry <b>experience</b></p>
-            <p class="fragment">How to handle big <b>Geodata-ETL-Pipelines</b>?</p> 
+            <p class="fragment">How to handle <b>geodata pipelines</b>?</p> 
             <p class="fragment">How is the dev experience in a <b>non-tech company</b>?</p>  
         </section>
         <section>
          <h5>Enerparc Expertise</h5>
-          <img src="images/enerparc_expertise.png"></img>
+            <p>ENERPARC AG is involved in every stage of <b>solar energy projects</b>, acting as both a <b>project developer, operator and a service provider</b> for third parties.</p>
+          <img src="images/enerparc_expertise.png" class="r-stretch"></img>
           <p><cite>ENERPARC AG. https://www.enerparc.de</cite></p>
         </section>
         <section>
-          <h5>Enerparc Overview</h5>
-          <img src="images/enerparc_overview.png"></img>
+          <h5>Enerparc in numbers</h5>
+          <img src="images/enerparc_overview.png" class="r-stretch"></img>
+           <p>Covers the electricity needs of <b>1.2 million households</b></p> 
           <p><cite>ENERPARC AG. https://www.enerparc.de</cite></p>
         </section>
         <section>
@@ -71,32 +153,79 @@
         </section>
         <section>
           <h3>My Team</h3>
+            <p class="fragment">Project Development: <b>GIS Development & Administration</b></p>
+            <p class="fragment"><b>4 Persons</b>: 1 Team lead, 1 Full time, 2 Working Students</p>
         </section>
         <section>
-          <h3>My Role</h3>
+            <h3>Problem Statement</h3>
+            <b class="fragment">Use cases</b>
+            <p class="fragment">Identification of <b>development possibilities</b></p>
+            <p class="fragment">Monitoring of <b>market activity</b></p>
+            <b class="fragment">Needed</b>
+            <p class="fragment">Daily updated geodata on <b>energy assets of Germany</b></p>
+            <b class="fragment">Approach</b>
+            <p class="fragment">A process where geodata is periodicaly <b>extracted</b> from an input source, <b>transformed</b> with buisness logic, and <b>loaded</b> into a geodatabase. <b>(ETL)</b></p>
         </section>
         <section>
-          <h3>My Projects</h3>
+            <h3>Input Source</h3>
+            <div class="r-stack r-stretch">
+                <img src="https://www.marktstammdatenregister.de/MaStR/Assets/img/MaStR_Logo.svg" class="fragment fade-in-then-out" width="600px"></img>
+                <p class="fragment fade-in-then-out">Is an official registry of <b>all facilities and units in the German energy system</b>. It is maintained by the Bundesnetzagentur. </p>
+                <img src="images/rdm.png" class="fragment"></img>
+            </div>
+            <cite>www.marktstammdatenregister.de</cite>
         </section>
         <section>
-          <h3>What is Geographic Information</h3>
-          <img src="images/geodata_features.png"></img>
-          <p><cite>Minn, Michael. Visualizing Terrain in ArcGIS Pro. https://michaelminn.net/tutorials/arcgis-pro-terrain/</cite></p>
+            <h3>Output Destination</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/500px-Postgresql_elephant.svg.png" height="200px"></img>
         </section>
         <section>
-          <h3>What is a Geographic Information Systems</h3>
-          <img src="images/qgis.png"></img>
-          <p><cite>Sutton, Tim. QGIS Screenshot. https://hub.qgis.org/screenshots/1/</cite></p>
+            <h3>Extraction Methods</h3>
+            <table>
+                <th>Methods</th>
+                <th>Advantage</th>
+                <th>Disadvantage</th>
+                <tr>
+                    <td>Simple Object Access Protocol (SOAP)</td>
+                </tr>
+                <tr>
+                    <td>Bulk download (ZIP)</td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h3>Transformation Methods</h3>
+            <img src="https://geopandas.org/en/stable/_static/geopandas_logo_web.svg" height="200px"></img>
+            <img src="https://upload.wikimedia.org/wikipedia/en/6/60/PostGIS_logo.png" height="200px"></img>
+        </section>
+        <section>
+            <h3>Loading Methods</h3>
+        </section>
+        <section>
+            <p>"Those who do not understand SQL are condemned to reinvent it, poorly."</p>
+            <cite>Adapted from Henry Spencer</cite>
         </section>
       </div>
     </div>
+
     <script src="dist/reveal.js"></script>
     <script src="plugin/notes/notes.js"></script>
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
     <script src="plugin/title-footer/title-footer.js"></script>
-    <script> Reveal.initialize({ hash: true, plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ] }); </script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script> 
+        Reveal.initialize({ 
+            controls: false,
+            transition: 'fade', 
+            slideNumber: 'c/t', 
+            hash: true, 
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ] 
+        }); 
+    </script>
+
+    
     <script>
       let map;
       let mapLayer;
@@ -110,12 +239,30 @@
           attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
+
+        const germanyBounds = [
+            [47, 5],
+            [55, 16]
+        ];
+
+        map.fitBounds(germanyBounds);
+
         fetch("data/solaranlagen.geojson")
           .then(res => res.json())
           .then(data => {
-            mapLayer = L.geoJSON(data).addTo(map);
+            mapLayer = L.geoJSON(data, {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, {
+                radius: 3,
+                color: '#004682',
+                weight: 1,
+                opacity: 0.0,
+                fillOpacity: 1
+                });
             const b = mapLayer.getBounds();
             if (b.isValid()) map.fitBounds(b, { padding: [20, 20] });
+            }
+            }).addTo(map);
           })
           .catch(err => console.error("Failed to load GeoJSON:", err));
       }
@@ -134,5 +281,6 @@
         }
       });
     </script>
+
 	</body>
 </html>

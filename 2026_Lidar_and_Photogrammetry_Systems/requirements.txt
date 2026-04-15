@@ -1,0 +1,7 @@
+open3d
+PDAL
+GDAL==3.11.5
+scipy
+numpy
+pandas
+laspy
